@@ -1,6 +1,5 @@
 from kivy.app import App
 from kivy.uix.label import Label
-# from kivy.uix.widget import Widget
 from kivy.uix.image import Image
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
@@ -8,14 +7,17 @@ from kivy.uix.gridlayout import GridLayout
 from verification import isValidEmail, isValidName
 
 
-class Formulaire(GridLayout):
+class Form(GridLayout):
     def __init__(self, **kwargs):
-        super(Formulaire, self).__init__(**kwargs)
+        super(Form, self).__init__(**kwargs)
         self.cols = 1
         self.inside = GridLayout()
         self.inside.cols = 2
-        self.img = Image(source="assets/rt.png",
-                         pos_hint={'center_x': .5, 'center_y': .5})
+        self.img = Image(
+            source="../assets/rt.png", pos_hint={
+                "center_x": 0.5, "center_y": 0.5
+                }
+        )
         self.add_widget(self.img)
         self.inside.add_widget(Label(text="Nom : ", font_size="15"))
         self.nom = TextInput(multiline=False, font_size="15")
@@ -60,11 +62,11 @@ class Formulaire(GridLayout):
 class Exo2(App):
     def build(self):
         self.title = "Formulaire"
-        self.icon = "assets/logo.png"
-        return Formulaire()
+        self.icon = "../assets/logo.png"
+        return Form()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     try:
         Exo2().run()
     except KeyboardInterrupt:

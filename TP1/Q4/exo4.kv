@@ -1,0 +1,52 @@
+#:kivy 1.11
+# Filename: exo4.kv
+
+
+
+<Formulaire>
+    nom: nom
+    prenom: prenom
+    email: email
+    res: result
+
+    GridLayout:
+        cols: 1
+        size: root.width-50, root.height-50
+        pos: 25, 25
+
+        Image:
+            source: '../assets/rt.png'
+            center_x: self.parent.center_x
+            center_y: self.parent.center_y
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Nom: "
+            TextInput:
+                id: nom
+                multiline: False
+            Label:
+                text: "Prenom: "
+            TextInput:
+                id: prenom
+                multiline: False
+            Label:
+                text: "Email: "
+            TextInput:
+                id: email
+                multiline: False
+        Label:
+            id: result
+            text: ""
+
+        GridLayout:
+            cols: 2
+
+            Button:
+                text: "Envoyer"
+                on_press: root.submit()
+
+            Button:
+                text: "Quitter"
+                on_press: root.quit()
