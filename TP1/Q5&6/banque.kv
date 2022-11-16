@@ -1,0 +1,90 @@
+#:kivy 1.11
+# Filename: banque.kv
+
+<Formulaire>
+    nom: nom
+    numCompte: num
+    montant: montant
+    solde: solde
+    solde_result: solde_result
+    res: result
+    header: header
+    action: action
+
+    GridLayout:
+        cols: 1
+        size: root.width-50, root.height-50
+        pos: 25, 25
+
+        Label:
+            text: "Banque"
+            underline: True
+            bold: True
+            font_name: "PlayFair"
+            font_size: 50 
+        Label:
+            text: "Veuillez choisir une opération"
+            id: header
+            font_name: "PlayFair"
+            font_size: 25
+
+        GridLayout:
+            cols:3
+            height: root.height/2
+            size_hint_y: None
+            Label:
+                text: "Créer un compte"
+                font_name: "PlayFair"
+                font_size: 15
+            GridLayout:
+                cols:1
+                TextInput:
+                    id: nom
+                    hint_text: "Nom du compte"
+                    multiline: False
+                    font_size: 15
+                TextInput:
+                    id: num
+                    hint_text: "Numéro de compte"
+                    multiline: False
+                    font_size: 15
+                TextInput:
+                    id: solde
+                    hint_text: "Solde initial"
+                    multiline: False
+                    font_size: 15
+            Button:
+                text: "Envoyer"
+                on_press: root.new_account()
+            Label:
+                text: "Deposer ou retirer de l'argent"
+                font_name: "PlayFair"
+                font_size: 15
+            GridLayout:
+                cols: 2
+                Spinner:
+                    text: 'Choisir une action'
+                    values: 'Déposer', 'Retirer'
+                    id: action
+                TextInput:
+                    id: montant
+                    hint_text: "Montant"
+                    multiline: False
+                    font_size: 15
+            Button:
+                text: "Envoyer"
+                on_press: root.debit()
+            Label:
+                text: "Afficher le solde"
+            Label:
+                id: solde_result
+                text: "Vous n'avez pas encore de compte chez nous"
+            Label:
+                font_name: "PlayFair"
+                font_size: 15
+                id: result
+            Label:
+                text: ""
+            Button:
+                text: "Quitter"
+                on_press: root.quit()

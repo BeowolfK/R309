@@ -1,0 +1,112 @@
+#:kivy 1.11
+# Filename: banque.kv
+
+<Consommation>
+    eu: eu
+    usa: usa
+    res: res
+    marque: marque
+    modele: modele
+    distance: distance
+    vol: vol
+    GridLayout:
+        cols: 1
+        size: root.width-50, root.height-50
+        pos: 25, 25
+        spacing: 15
+
+        Label:
+            text:"Calculateur"
+            underline: True
+            font_size: 35
+            size_hint_y:None
+            height: 40
+        Label:
+            text:"Entrez vos information pour obenir votre consommation moyenne"
+            font_size: 25
+            size_hint_y:None
+            height: 50
+
+        GridLayout:
+            cols: 2
+            spacing: 15
+            GridLayout:
+                size_hint_x:None
+                size_hint_y:None
+                width: 500
+                height: 200
+                cols: 2
+                spacing: 10
+
+                Label:
+                    text: "Marque"
+                    size_hint_x:None
+                    width: 100
+                    halign: 'center'
+                TextInput:
+                    text: "Renaud"
+                    # hint_text: "b"
+                    halign: 'center'
+                    id: marque
+                Label:
+                    text: "Modèle"
+                    size_hint_x:None
+                    width: 100
+                    halign: 'center'
+                TextInput:
+                    text: "Clio V"
+                    # hint_text: "b"
+                    halign: 'center'
+                    id: modele
+                Label:
+                    text: "Distance\nparcouru\n(en km)"
+                    halign: 'center'
+                    size_hint_x:None
+                    width: 100
+                    halign: 'center'
+                TextInput:
+                    text: "50"
+                    # hint_text: "b"
+                    halign: 'center'
+                    id: distance
+                Label:
+                    text: "Volume du\ncarburant\n(en litre)"
+                    size_hint_x:None
+                    width: 100
+                    halign: 'center'
+                TextInput:
+                    text: '36'
+                    # hint_text: "b"
+                    halign: 'center'
+                    id: vol
+            GridLayout:
+                cols: 2
+
+                GridLayout:
+
+                    rows: 2
+                    size_hint_x:None
+
+                    ToggleButton:
+                        text: "EU"
+                        group: 'pays'
+                        state: 'down'
+                        id: eu
+                    
+                    ToggleButton:
+                        text: "USA"
+                        group: 'pays'
+                        id: usa
+                Label:
+                    text: ""
+                    id: res
+            Button:
+                text: "Envoyer"
+                on_press: root.submit()
+                size_hint_x:None
+                width: 500
+        Button:
+            size_hint_y: None
+            height: 50
+            text: "Quitter"
+            on_press: root.quit()

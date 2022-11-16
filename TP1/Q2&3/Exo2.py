@@ -14,9 +14,7 @@ class Form(GridLayout):
         self.inside = GridLayout()
         self.inside.cols = 2
         self.img = Image(
-            source="../assets/rt.png", pos_hint={
-                "center_x": 0.5, "center_y": 0.5
-                }
+            source="../assets/rt.png", pos_hint={"center_x": 0.5, "center_y": 0.5}
         )
         self.add_widget(self.img)
         self.inside.add_widget(Label(text="Nom : ", font_size="15"))
