@@ -1,6 +1,5 @@
 from banque import CompteBancaire
 from kivy.app import App
-from kivy.core.text import LabelBase
 from kivy.core.window import Window
 from kivy.properties import ObjectProperty
 from kivy.uix.widget import Widget
@@ -64,5 +63,4 @@ class banqueApp(App):
 
 
 if __name__ == "__main__":
-    LabelBase.register(name="Playfair", fn_regular="Playfair.ttf")
     banqueApp().run()

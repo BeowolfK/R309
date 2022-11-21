@@ -17,4 +17,6 @@ class Voiture:
 
     @property
     def consoUsa(self):
-        return round((self.distanceParcouru / 1.609) / (self.volumeCarburant / 3.785), 2)
+        return round(
+            (self.distanceParcouru / 1.609) / (self.volumeCarburant / 3.785), 2
+        )

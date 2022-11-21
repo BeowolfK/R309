@@ -29,10 +29,11 @@ class Consommation(Widget):
                 self.marque.text,
                 self.modele.text,
                 float(self.distance.text),
-                float(self.vol.text))
-            if self.eu.state == 'down':
+                float(self.vol.text),
+            )
+            if self.eu.state == "down":
                 self.res.text = f"{v.consoEur}L/100km"
-            elif self.usa.state == 'down':
+            elif self.usa.state == "down":
                 self.res.text = f"{v.consoUsa}gallons per miles"
             else:
                 self.res.text = "Erreur"
